@@ -27,6 +27,7 @@ const Login = () => {
             .then((res) => {
                 localStorage.setItem('accessToken', res.data.accessToken);
                 localStorage.setItem('role', "patient");
+                localStorage.setItem('username', formData.username);
 
                 setLoading(false);
                 navigate("/home");

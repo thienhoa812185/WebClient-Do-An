@@ -1,14 +1,50 @@
+import commentService from "@/service/commentService";
 import { useState } from "react";
 import { AiFillStar } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-const FeedbackForm = () => {
+
+const FeedbackForm = ({ id }) => {
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
     const [reviewText, setReviewText] = useState("");
 
-    const handleSubmitReview = async e => {
+    const navigate = useNavigate();
+
+    const handleSubmitReview = e => {
         e.preventDefault()
+
+        const patientId = localStorage.getItem("patientId")
+
+        const formComment = {
+            doctorId: id,
+            patientId: patientId,
+            rate: rating,
+            review: reviewText,
+            date: formatDatetime()
+        }
+
+
+
+        commentService.addComment(formComment)
+            .then(res => {
+                window.location.reload();
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
+
+    const formatDatetime = () => {
+        var currentDate = new Date();
+        var day = currentDate.getDate();
+        var month = currentDate.getMonth() + 1;
+        var year = currentDate.getFullYear();
+        var dateString = year + "-" + month + "-" + day;
+        return dateString;
+    }
+
 
     return (
         <form action="">
@@ -35,7 +71,7 @@ const FeedbackForm = () => {
             </div>
             <div className="mt-[30px]">
                 <h3 className="text-headingColor text-[16px] leading-6 font-semibold mb-4 mt-0">Share your feedback or suggestion*</h3>
-                <textarea className="border border-solid border-[#0066ff34] focus:outline outline-primaryColor w-full px-4 py-3 rounded-md" rows="5" placeholder="Write your message" onChange={() => setReviewText(e.target.value)}></textarea>
+                <textarea className="border border-solid border-[#0066ff34] focus:outline outline-primaryColor w-full px-4 py-3 rounded-md" rows="5" placeholder="Write your message" value={reviewText} onChange={(e) => setReviewText(e.target.value)}></textarea>
             </div>
 
             <button type="submit" onClick={handleSubmitReview} className="btn">Submit Feedback</button>

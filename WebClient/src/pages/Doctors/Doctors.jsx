@@ -1,6 +1,21 @@
-import DoctorCard from './../../components/Doctors/DoctorCard';
+import DoctorCard from './../../temp/components/Doctors/DoctorCard';
 import { doctors } from './../../assets/data/doctors'
+import { useEffect, useState } from 'react';
+import doctorService from '@/service/doctorService';
 const Doctor = () => {
+
+    const [doctorList, setDoctorList] = useState([])
+
+    useEffect(() => {
+        doctorService.getAllDoctor()
+            .then(res => {
+                console.log(res.data)
+                setDoctorList(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, []);
 
     return <>
         <section className="bg-[#fff9ea]">
@@ -19,7 +34,7 @@ const Doctor = () => {
             <div className="container">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                     {
-                        doctors.map(doctor => (
+                        doctorList.map(doctor => (
                             <DoctorCard key={doctor.id} doctor={doctor} />
                         ))
                     }

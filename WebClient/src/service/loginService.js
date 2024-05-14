@@ -7,7 +7,6 @@ class LoginService {
     }
 
     register(registerData) {
-
         return axios.post(BASE_URL + "/api/auth/register", registerData);
     }
 }

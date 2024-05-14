@@ -1,4 +1,6 @@
-const SidePanel = () => {
+import BookAppointment from "./BookAppointment";
+
+const SidePanel = ({ doctor }) => {
 
     return (
         <div className="shadow-panelShadow p-3 lg:p-5 rounded-md">
@@ -25,6 +27,7 @@ const SidePanel = () => {
                 </ul>
             </div>
             <button className="btn px-2 w-full rounded-md">Book Appoitment</button>
+            <BookAppointment doctor={doctor}/>
         </div>
     )
 

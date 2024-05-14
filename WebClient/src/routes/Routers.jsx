@@ -8,6 +8,7 @@ import MyAccount from '../Dashboard/user-account/MyAccount';
 import ProtectedRoute from './ProtectedRoute';
 
 import { Routes, Route } from 'react-router-dom';
+import DoctorRecommendation from '@/pages/DoctorRecommendation';
 const Routers = () => {
 
     return <Routes>
@@ -17,6 +18,7 @@ const Routers = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Signup />} />
         <Route path='/doctors' element={<Doctor />} />
+        <Route path='/doctorRecommendation' element={<DoctorRecommendation />} />
         <Route path='/doctors/:id' element={<DoctorDetails />} />
         <Route path='/users/profile/me' element={<ProtectedRoute allowedRoles={['patient']}><MyAccount /></ProtectedRoute>} />
 

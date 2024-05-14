@@ -1,8 +1,9 @@
 import { useEffect, useRef, useContext } from "react";
-import logo from "../../assets/images/logo.png";
-import userImg from '../../assets/images/avatar-icon.png';
+import logo from "../../../assets/images/logo.png";
+import userImg from '../../../assets/images/avatar-icon.png';
 import { NavLink, Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
+import patientService from "@/service/patientService";
 
 const navLinks = [
     {
@@ -20,6 +21,10 @@ const navLinks = [
     {
         path: '/contact',
         display: 'Contact'
+    },
+    {
+        path: '/doctorRecommendation',
+        display: 'Doctor Recommendation'
     }
 ]
 
@@ -47,6 +52,22 @@ const Header = () => {
 
         return () => window.removeEventListener('scroll', handleStickyHeader)
     })
+
+    useEffect(() => {
+
+        const username = localStorage.getItem("username")
+        if (username != null) {
+            patientService.getPatientByUsername(username)
+                .then(res => {
+                    //console.log(res.data)
+                    localStorage.setItem('patientId', res.data.id);
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }
+    }, [])
+
 
     const toggleMenu = () => menuRef.current.classList.toggle('show__menu')
 
