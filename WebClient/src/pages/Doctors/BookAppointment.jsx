@@ -54,6 +54,11 @@ const BookAppointment = ({ doctor }) => {
         return element ? element.id : null; // Trả về id của phần tử đầu tiên, hoặc null nếu không tìm thấy
     }
 
+    const mapToScheduleTime = (time) => {
+        return time
+            .filter(element => element.status === 0)
+    };
+
 
     useEffect(() => {
         bookingService.getAllBooking()
@@ -67,8 +72,9 @@ const BookAppointment = ({ doctor }) => {
 
         doctorService.getDoctorById(id)
             .then((res) => {
-                setListBookingFull(res.data.doctorSchedules);
-                setTimeSlot(res.data.doctorSchedules);
+                setListBookingFull(mapToScheduleTime(res.data.doctorSchedules));
+                //console.log(mapToScheduleTime(res.data.doctorSchedules))
+                setTimeSlot(mapToScheduleTime(res.data.doctorSchedules));
             })
             .catch(err => {
                 console.log("Lỗi khi tải danh sách lịch trình của bác sĩ:", err);
