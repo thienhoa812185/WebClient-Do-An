@@ -14,7 +14,7 @@ const MyBookings = () => {
         bookingService.getBookingByUsername(username)
             .then(res => {
                 console.log(res.data)
-                setBookingList(res.data)
+                setBookingList(res.data.reverse())
             })
             .catch(err => {
                 console.log(err)

@@ -1,10 +1,11 @@
 import startIcon from '../assets/images/Star.png'
 import { Link } from "react-router-dom";
 import { BsArrowRight } from 'react-icons/bs';
+import PaypalCheckoutButton from './PaypalCheckoutButton';
 
 const BookingInformation = ({ booking }) => {
 
-    const { appointmentTime, doctor, statusBooking, doctorSchedule } = booking;
+    const { id, appointmentTime, doctor, statusBooking, doctorSchedule, statusPayment } = booking;
 
     return (
         <div className="p-3 lg:p-5">
@@ -21,18 +22,28 @@ const BookingInformation = ({ booking }) => {
             </div>
 
             <div className='mt-[18px] lg:mt-5'>
-                <p className='text-[14px] leading-6 font-[400] text-textColor'>Booking Time: {doctorSchedule.scheduleTime.time}, {appointmentTime}</p>
-                <p className='text-[14px] leading-6 font-[400] text-textColor'>Address: {doctor.examination_Address}</p>
+                <p className='text-[14px] leading-6 font-[400] text-textColor'><strong>Booking Time: </strong>{doctorSchedule.scheduleTime.time}, {appointmentTime}</p>
+                <p className='text-[14px] leading-6 font-[400] text-textColor'><strong>Address:</strong> {doctor.examination_Address}</p>
             </div>
 
-            <div className='mt-[18px] lg:mt-5 flex items-center justify-between'>
+            <div className='my-[18px] lg:mt-5 flex items-center justify-between'>
                 <div>
-                    <h3 className='text-[16px] leading-7 lg:text-[18px] lg:leading-[30px] font-semibold text-headingColor'>{statusBooking}</h3>
+                    <h3 className='bg-rose-200 text-rose-500 py-1 px-2 lg:py-2 lg:px-6 text-[12px] leading-4 lg:text-[13px] lg:leading-7 font-semibold rounded'>{statusBooking}</h3>
                 </div>
+                <div>
+                    {
+                        statusPayment === "PAID" && <h3 className='bg-green-300 text-green-900 py-1 px-2 lg:py-2 lg:px-6 text-[12px] leading-4 lg:text-[13px] lg:leading-7 font-semibold rounded'>{statusPayment}</h3>
+                    }
+                    {
+                        statusPayment === "UNPAID" && <h3 className='bg-rose-200 text-rose-500 py-1 px-2 lg:py-2 lg:px-6 text-[12px] leading-4 lg:text-[13px] lg:leading-7 font-semibold rounded'>{statusPayment}</h3>
+                    }                </div>
                 <Link to={`/doctors/${3}`} className='w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] flex items-center justify-center group hover:bg-primaryColor hover:border-none'>
                     <BsArrowRight className='group-hover:text-white w-6 h-5' />
                 </Link>
             </div>
+            {
+                statusPayment === "UNPAID" && <PaypalCheckoutButton id={id} price={doctor.examination_Price} />
+            }
         </div >
     )
 }

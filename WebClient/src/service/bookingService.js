@@ -15,6 +15,10 @@ class BookingService {
         return axios.get(BASE_URL + "/api/booking/getBookingByEmailUser/" + username)
     }
 
+    updateStatusMethod(idBooking, statusMethod) {
+        return axios.post(BASE_URL + "/api/booking/updateStatusMethod/" + idBooking, statusMethod)
+    }
+
 }
 
 
