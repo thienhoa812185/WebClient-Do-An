@@ -1,4 +1,3 @@
-import { doctors } from "@/assets/data/doctors";
 import BookingInformation from "@/pages/BookingInformation";
 import bookingService from "@/service/bookingService";
 import DoctorCard from "@/temp/components/Doctors/DoctorCard";
@@ -13,7 +12,7 @@ const MyBookings = () => {
         const username = localStorage.getItem("username")
         bookingService.getBookingByUsername(username)
             .then(res => {
-                console.log(res.data)
+                //console.log(res.data)
                 setBookingList(res.data.reverse())
             })
             .catch(err => {

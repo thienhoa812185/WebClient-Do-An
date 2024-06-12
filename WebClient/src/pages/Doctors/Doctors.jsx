@@ -22,6 +22,8 @@ const Doctor = () => {
         setFormData({ ...formData, [name]: value });
     };
 
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
         let filtered = doctorListOriginal.filter(doctor => {
@@ -61,7 +63,7 @@ const Doctor = () => {
     return <>
         <section className="bg-[#fff9ea]">
             <div className="container text-center">
-                <h2 className="heading">Find a Doctor</h2>
+                <h2 className="heading">Tìm kiếm bác sĩ</h2>
 
                 {/* <div className="max-w-[570px] mt-[30px] mx-auto bg-[#0066ff2c] rounded-md flex items-center justify-between">
                     <input type="search" className="py-4 pl-4 pr-2 bg-transparent w-full focus:outline-none cursor-pointer placeholder:text-textColor" placeholder="Search Doctor" />
@@ -71,37 +73,46 @@ const Doctor = () => {
                 <div class="container mx-auto px-4">
                     <form class="filter grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" onSubmit={handleSubmit}>
                         <div class="item">
-                            <label class="block mb-1">Specialist</label>
+                            <label class="block mb-1">Chuyên khoa</label>
                             <select name="specialist" class="w-full p-2 border border-gray-300 rounded-md" onChange={handleChange} value={formData.specialist}>
                                 <option value="">---</option>
                                 <option value="Cơ Xương Khớp">Cơ Xương Khớp</option>
                                 <option value="Thần Kinh">Thần Kinh</option>
+                                <option value="Tiêu Hóa">Tiêu Hóa</option>
+                                <option value="Tim Mạch">Tim Mạch</option>
+                                <option value="Tai Mũi Họng">Tai Mũi Họng</option>
+                                <option value="Thận - Tiết niệu">Thận - Tiết niệu</option>
+                                <option value="Da liễu">Da liễu</option>
+                                <option value="Dị ứng miễn dịch">Dị ứng miễn dịch</option>
+
                                 {/* <option value="Polo">Polo</option> */}
                             </select>
                         </div>
                         <div class="item">
-                            <label class="block mb-1">Position</label>
+                            <label class="block mb-1">Chức vụ</label>
                             <select name="position" class="w-full p-2 border border-gray-300 rounded-md" onChange={handleChange} value={formData.position}>
                                 <option value="">---</option>
                                 <option value="Bác sĩ">Bác sĩ</option>
                                 <option value="Thạc sĩ">Thạc sĩ</option>
                                 <option value="Tiến sĩ">Tiến sĩ</option>
+                                <option value="Bác sĩ Chuyên khoa I">Bác sĩ Chuyên khoa I</option>
+                                <option value="Bác sĩ Chuyên khoa II">Bác sĩ Chuyên khoa II</option>
                             </select>
                         </div>
                         <div class="item">
-                            <label class="block mb-1">Name</label>
+                            <label class="block mb-1">Tên bác sĩ</label>
                             <input name="name" type="text" class="w-full p-2 border border-gray-300 rounded-md" onChange={handleChange} value={formData.name} />
                         </div>
                         <div class="item">
-                            <label class="block mb-1">Min Price</label>
+                            <label class="block mb-1">Giá thấp nhất</label>
                             <input name="minPrice" type="number" class="w-full p-2 border border-gray-300 rounded-md" onChange={handleChange} value={formData.minPrice} />
                         </div>
                         <div class="item">
-                            <label class="block mb-1">Max Price</label>
+                            <label class="block mb-1">Giá cao nhất</label>
                             <input name="maxPrice" type="number" class="w-full p-2 border border-gray-300 rounded-md" onChange={handleChange} value={formData.maxPrice} />
                         </div>
                         <div class="item submit col-span-full">
-                            <button class="bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700">Search</button>
+                            <button class="bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700">Tìm kiếm</button>
                         </div>
                     </form>
                     <div class="countResults text-center font-bold text-2xl py-4">

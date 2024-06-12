@@ -616,3 +616,212 @@ export const specialties = {
     "Hypoglycemia",
   ],
 }
+
+export const specialtiesArray = [
+  {
+    "id": "01",
+    "en": "Rheumatologist",
+    "vi": "Bác sĩ thấp khớp"
+  },
+  {
+    "id": "02",
+    "en": "Neurologist",
+    "vi": "Bác sĩ thần kinh"
+  },
+  {
+    "id": "03",
+    "en": "Gastroenterologist",
+    "vi": "Bác sĩ tiêu hóa"
+  },
+  {
+    "id": "04",
+    "en": "Cardiologist",
+    "vi": "Bác sĩ tim mạch"
+  },
+  {
+    "id": "05",
+    "en": "ENT_specialist",
+    "vi": "Chuyên gia tai mũi họng"
+  },
+  {
+    "id": "06",
+    "en": "Urologist",
+    "vi": "Bác sĩ tiết niệu"
+  },
+  {
+    "id": "07",
+    "en": "Dermatologist",
+    "vi": "Bác sĩ da liễu"
+  },
+  {
+    "id": "08",
+    "en": "Allergist_Immunologist",
+    "vi": "Bác sĩ dị ứng - miễn dịch học"
+  }
+]
+
+
+
+
+export const diseases = [
+  {
+    "en": "Osteoarthristis",
+    "vi": "Viêm xương khớp"
+  },
+  {
+    "en": "Arthritis",
+    "vi": "Viêm khớp"
+  },
+  {
+    "en": "Heart attack",
+    "vi": "Cơn đau tim"
+  },
+  {
+    "en": "Bronchial Asthma",
+    "vi": "Hen phế quản"
+  },
+  {
+    "en": "Hypertension",
+    "vi": "Tăng huyết áp"
+  },
+  {
+    "en": "(vertigo) Paroymsal  Positional Vertigo",
+    "vi": "Chóng mặt tư thế kịch phát lành tính"
+  },
+  {
+    "en": "Hypothyroidism",
+    "vi": "Suy giáp"
+  },
+  {
+    "en": "Varicose veins",
+    "vi": "Giãn tĩnh mạch"
+  },
+  {
+    "en": "Paralysis (brain hemorrhage)",
+    "vi": "Liệt (xuất huyết não)"
+  },
+  {
+    "en": "Migraine",
+    "vi": "Đau nửa đầu"
+  },
+  {
+    "en": "Cervical spondylosis",
+    "vi": "Thoái hóa đốt sống cổ"
+  },
+  {
+    "en": "Allergy",
+    "vi": "Dị ứng"
+  },
+  {
+    "en": "Pneumonia",
+    "vi": "Viêm phổi"
+  },
+  {
+    "en": "AIDS",
+    "vi": "HIV/AIDS"
+  },
+  {
+    "en": "Common Cold",
+    "vi": "Cảm lạnh"
+  },
+  {
+    "en": "Tuberculosis",
+    "vi": "Lao"
+  },
+  {
+    "en": "Malaria",
+    "vi": "Sốt rét"
+  },
+  {
+    "en": "Dengue",
+    "vi": "Sốt xuất huyết"
+  },
+  {
+    "en": "Typhoid",
+    "vi": "Thương hàn"
+  },
+  {
+    "en": "Urinary tract infection",
+    "vi": "Nhiễm trùng đường tiết niệu"
+  },
+  {
+    "en": "Dimorphic hemmorhoids(piles)",
+    "vi": "Trĩ hỗn hợp"
+  },
+  {
+    "en": "Acne",
+    "vi": "Mụn trứng cá"
+  },
+  {
+    "en": "Chicken pox",
+    "vi": "Thủy đậu"
+  },
+  {
+    "en": "Fungal infection",
+    "vi": "Nhiễm trùng nấm"
+  },
+  {
+    "en": "Psoriasis",
+    "vi": "Vẩy nến"
+  },
+  {
+    "en": "Impetigo",
+    "vi": "Chốc lở"
+  },
+  {
+    "en": "Peptic ulcer diseae",
+    "vi": "Bệnh loét dạ dày"
+  },
+  {
+    "en": "GERD",
+    "vi": "Trào ngược dạ dày thực quản"
+  },
+  {
+    "en": "Chronic cholestasis",
+    "vi": "Ứ mật mạn tính"
+  },
+  {
+    "en": "Drug Reaction",
+    "vi": "Phản ứng thuốc"
+  },
+  {
+    "en": "Gastroenteritis",
+    "vi": "Viêm dạ dày ruột"
+  },
+  {
+    "en": "Hepatitis E",
+    "vi": "Viêm gan E"
+  },
+  {
+    "en": "Alcoholic hepatitis",
+    "vi": "Viêm gan do rượu"
+  },
+  {
+    "en": "Jaundice",
+    "vi": "Vàng da"
+  },
+  {
+    "en": "Hepatitis A",
+    "vi": "Viêm gan A"
+  },
+  {
+    "en": "Hepatitis B",
+    "vi": "Viêm gan B"
+  },
+  {
+    "en": "Hepatitis C",
+    "vi": "Viêm gan C"
+  },
+  {
+    "en": "Hepatitis D",
+    "vi": "Viêm gan D"
+  },
+  {
+    "en": "Diabetes",
+    "vi": "Đái tháo đường"
+  },
+  {
+    "en": "Hypoglycemia",
+    "vi": "Hạ đường huyết"
+  }
+];

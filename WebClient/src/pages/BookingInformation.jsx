@@ -28,7 +28,18 @@ const BookingInformation = ({ booking }) => {
 
             <div className='my-[18px] lg:mt-5 flex items-center justify-between'>
                 <div>
-                    <h3 className='bg-rose-200 text-rose-500 py-1 px-2 lg:py-2 lg:px-6 text-[12px] leading-4 lg:text-[13px] lg:leading-7 font-semibold rounded'>{statusBooking}</h3>
+                    {
+                        statusBooking === "CANCELLED" && <h3 className='bg-rose-200 text-rose-500 py-1 px-2 lg:py-2 lg:px-6 text-[12px] leading-4 lg:text-[13px] lg:leading-7 font-semibold rounded'>{statusBooking}</h3>
+                    }
+                    {
+                        statusBooking === "COMPLETED" && <h3 className='bg-green-300 text-green-900 py-1 px-2 lg:py-2 lg:px-6 text-[12px] leading-4 lg:text-[13px] lg:leading-7 font-semibold rounded'>{statusBooking}</h3>
+                    }
+                    {
+                        statusBooking === "CONFIRM" && <h3 className='bg-amber-300 text-rose-500 py-1 px-2 lg:py-2 lg:px-6 text-[12px] leading-4 lg:text-[13px] lg:leading-7 font-semibold rounded'>{statusBooking}</h3>
+                    }
+                    {
+                        statusBooking === "PENDING" && <h3 className='bg-teal-500 text-green-900 py-1 px-2 lg:py-2 lg:px-6 text-[12px] leading-4 lg:text-[13px] lg:leading-7 font-semibold rounded'>{statusBooking}</h3>
+                    }
                 </div>
                 <div>
                     {
@@ -42,7 +53,10 @@ const BookingInformation = ({ booking }) => {
                 </Link>
             </div>
             {
-                statusPayment === "UNPAID" && <PaypalCheckoutButton id={id} price={doctor.examination_Price} />
+                statusBooking === "CONFIRM" && statusPayment === "UNPAID" && <PaypalCheckoutButton id={id} price={doctor.examination_Price} />
+            }
+            {
+                statusBooking === "COMPLETED" && statusPayment === "UNPAID" && <PaypalCheckoutButton id={id} price={doctor.examination_Price} />
             }
         </div >
     )

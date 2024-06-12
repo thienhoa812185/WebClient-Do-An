@@ -46,12 +46,12 @@ const DoctorDetails = () => {
                         <div>
                             <span className="bg-[#CCF0F3] text-irisBlueColor py-1 px-6 lg:py-2 lg:px-6 text-[12px] leading-4 lg:text-[16px] lg:leading-7 font-semibold rounded">{doctor.speciality.name}</span>
                             <h3 className="text-headingColor text-[22px] leading-9 mt-3 font-bold">{doctor.name}</h3>
-                            <div className="flex items-center gap-[6px]">
+                            {/* <div className="flex items-center gap-[6px]">
                                 <span className="flex items-center gap-[6px] text-[14px] leading-5 lg:text-[16px] lg:leading-7 font-semibold text-headingColor">
                                     <img src={startIcon} alt="" /> 4.8
                                 </span>
                                 <span className="text-[14px] leading-5 lg:text-[16px] lg:leading-7 font-[400] text-textColor">(272)</span>
-                            </div>
+                            </div> */}
                             <p className="text__para text-[14px] leading-6 md:text-[15px] lg:max-w-[390px]">{doctor.description}</p>
                         </div>
                     </div>

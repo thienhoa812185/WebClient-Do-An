@@ -2,11 +2,15 @@ import BookAppointment from "./BookAppointment";
 
 const SidePanel = ({ doctor }) => {
 
+    const formatCurrencyVND = (amount) => {
+        return amount?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+    }
+
     return (
         <div className="shadow-panelShadow p-3 lg:p-5 rounded-md">
             <div className="flex items-center justify-between">
                 <p className="text__para mt-0 font-semibold">Ticket Price</p>
-                <span className="text-[16px] leading-7 lg:text-[22px] lg:leading-8 text-headingColor font-bold">{doctor.examination_Price}</span>
+                <span className="text-[16px] leading-7 lg:text-[22px] lg:leading-8 text-headingColor font-bold">{doctor && formatCurrencyVND(doctor.examination_Price)}</span>
             </div>
             <div className="mt-[30px]">
                 <p className="text__para mt-0 font-semibold text-headingColor">Available Time Slots:</p>
@@ -26,7 +30,7 @@ const SidePanel = ({ doctor }) => {
                     </li>
                 </ul>
             </div>
-            <button className="btn px-2 w-full rounded-md">Book Appoitment</button>
+            {/* <button className="btn px-2 w-full rounded-md">Book Appoitment</button> */}
             <BookAppointment doctor={doctor} />
         </div>
     )

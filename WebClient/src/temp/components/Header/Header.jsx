@@ -8,23 +8,23 @@ import patientService from "@/service/patientService";
 const navLinks = [
     {
         path: '/home',
-        display: 'Home'
+        display: 'Trang chủ'
     },
     {
         path: '/doctors',
-        display: 'Find a Doctor'
+        display: 'Tìm kiếm bác sĩ'
     },
-    {
-        path: '/services',
-        display: 'Services'
-    },
-    {
-        path: '/contact',
-        display: 'Contact'
-    },
+    // {
+    //     path: '/services',
+    //     display: 'Services'
+    // },
+    // {
+    //     path: '/contact',
+    //     display: 'Contact'
+    // },
     {
         path: '/doctorRecommendation',
-        display: 'Doctor Recommendation'
+        display: 'Hệ thống dự đoán bệnh tật'
     }
 ]
 
@@ -110,7 +110,7 @@ const Header = () => {
                                 </figure>
                             </Link>
                         </div> : <Link to='login'>
-                            <button className="bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]">Login</button>
+                            <button className="bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]">Đăng nhập</button>
                         </Link>
                     }
                     <span className="md:hidden" onClick={toggleMenu}>

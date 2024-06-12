@@ -86,24 +86,24 @@ const Signup = () => {
                 </div>
 
                 <div className="rounded-l-lg lg:pl-16 py-10">
-                    <h3 className="text-headingColor text-[22px] leading-9 font-bold mb-10">Create an <span className="text-primaryColor">account</span></h3>
+                    <h3 className="text-headingColor text-[22px] leading-9 font-bold mb-10">Tạo <span className="text-primaryColor">tài khoản</span></h3>
                     <form onSubmit={submitHandler}>
                         <div className="mb-5">
-                            <input type="text" placeholder="Full Name" name="name" value={formData.name} onChange={handleInputChange} className="w-full pr-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer" required />
+                            <input type="text" placeholder="Họ và tên" name="name" value={formData.name} onChange={handleInputChange} className="w-full pr-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer" required />
                         </div>
                         <div className="mb-5">
                             <input type="text" placeholder="Username" name="username" value={formData.username} onChange={handleInputChange} className="w-full pr-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer" required />
                         </div>
                         <div className="mb-5">
-                            <input type="email" placeholder="Enter your email" name="email" value={formData.email} onChange={handleInputChange} className="w-full pr-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer" required />
+                            <input type="email" placeholder="Nhập vào Email" name="email" value={formData.email} onChange={handleInputChange} className="w-full pr-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer" required />
                         </div>
                         <div className="mb-5">
-                            <input type="password" placeholder="Password" name="password" value={formData.password} onChange={handleInputChange} className="w-full pr-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer" required />
+                            <input type="password" placeholder="Mật khẩu" name="password" value={formData.password} onChange={handleInputChange} className="w-full pr-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer" required />
                         </div>
                         <div className="mb-5">
                             <input
                                 type="text"
-                                placeholder="Address"
+                                placeholder="Địa chỉ"
                                 name="address"
                                 value={formData.address}
                                 onChange={handleInputChange}
@@ -114,7 +114,7 @@ const Signup = () => {
                         <div className="mb-5">
                             <input
                                 type="text"
-                                placeholder="Phone"
+                                placeholder="Số điện thoại"
                                 name="phone"
                                 value={formData.phone}
                                 onChange={handleInputChange}
@@ -140,11 +140,11 @@ const Signup = () => {
 
 
                             <label className="text-headingColor font-bold text-[16px] leading-7">
-                                Gender:
+                                Giới tính:
                                 <select name="gender" value={formData.gender} onChange={handleInputChange} className="text-textColor font-semibold text-[15px] leading-7 px-4 py-3 focus:outline-none">
                                     <option value="">Select</option>
-                                    <option value={0}>Male</option>
-                                    <option value={1}>Female</option>
+                                    <option value={0}>Nam</option>
+                                    <option value={1}>Nữ</option>
                                     <option value="other">Other</option>
                                 </select>
                             </label>
@@ -157,15 +157,15 @@ const Signup = () => {
                             </figure>}
                             <div className="relative w-[130px] h-[50px]">
                                 <input type="file" name="photo" id="customFile" onChange={handFileInputChange} accept=".jpg, .png" className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer" />
-                                <label htmlFor="customFile" className="absolute top-0 left-0 w-full h-full flex items-center px-[0.75rem] py-[0.375rem] text-[15px] leading-6 overflow-hidden bg-[#0066ff46] text-headingColor font-semibold rounded-lg truncate cursor-pointer">Upload Photo</label>
+                                <label htmlFor="customFile" className="absolute top-0 left-0 w-full h-full flex items-center px-[0.75rem] py-[0.375rem] text-[15px] leading-6 overflow-hidden bg-[#0066ff46] text-headingColor font-semibold rounded-lg truncate cursor-pointer">Hình ảnh</label>
                             </div>
                         </div>
 
                         <div className="mt-7">
-                            <button disabled={loading && true} type="submit" className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg px-4 py-3">{loading ? <HashLoader size={35} color="#ffffff" /> : 'Sign Up'}</button>
+                            <button disabled={loading && true} type="submit" className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg px-4 py-3">{loading ? <HashLoader size={35} color="#ffffff" /> : 'Đăng ký'}</button>
                         </div>
 
-                        <p className="mt-5 text-textColor text-center">Already have an account? <Link to='/login' className="text-primaryColor font-medium ml-1">Login</Link></p>
+                        <p className="mt-5 text-textColor text-center">Bạn đã có tài khoản? <Link to='/login' className="text-primaryColor font-medium ml-1">Đăng nhập</Link></p>
                     </form>
                 </div>
             </div>

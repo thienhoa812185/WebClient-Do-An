@@ -34,6 +34,13 @@ const BookAppointment = ({ doctor }) => {
     const [selectedTimeSlot, setSelectedTimeSlot] = useState();
     const [bookingList, setBookingList] = useState([]);
     const [listBookingFull, setListBookingFull] = useState([]);
+    const [note, setNote] = useState("");
+
+    console.log(note)
+
+    const handleChange = e => {
+        setNote(e.target.value);
+    }
 
     const navigate = useNavigate();
 
@@ -87,7 +94,7 @@ const BookAppointment = ({ doctor }) => {
 
         const bookedTimeSlots = new Set(
             bookingList
-                .filter(appointment => appointment.appointmentTime === formattedDate)
+                .filter(appointment => appointment.appointmentTime === formattedDate && appointment.statusBooking !== "CANCELLED")
                 .map(appointment => appointment.doctorSchedule.id)
         );
 
@@ -101,25 +108,94 @@ const BookAppointment = ({ doctor }) => {
     }
 
     const handleSubmit = () => {
-        console.log("Booking")
-        const patientId = localStorage.getItem("patientId")
+        console.log("Booking");
+        const patientId = localStorage.getItem("patientId");
+        const doctorScheduleId = getFirstIdByTime(listBookingFull, selectedTimeSlot);
+
         const bookingData = {
             appointmentTime: formatDateToString(date),
             patientId: patientId,
-            note: "",
-            doctorScheduleId: getFirstIdByTime(listBookingFull, selectedTimeSlot)
-        }
-        console.log(bookingData)
-        bookingService.addBooking(bookingData)
+            note: note,
+            doctorScheduleId: doctorScheduleId
+        };
+
+        // Kiểm tra tính khả dụng của khung giờ trước khi đặt lịch
+        bookingService.checkSlotAvailability(doctorScheduleId, bookingData.appointmentTime)
             .then(res => {
-                toast.success("Ban da dat lich thanh cong");
-                navigate("/home")
+                if (res.data) {  // Giả sử API trả về một đối tượng có thuộc tính isAvailable
+                    bookingService.addBooking(bookingData)
+                        .then(res => {
+                            toast.success("Bạn đã đặt lịch thành công");
+                            navigate("/home");
+                        })
+                        .catch(err => {
+                            toast.error("Bạn đã đặt lịch thất bại");
+                            console.error(err);
+                        });
+                } else {
+                    toast.error("Khung giờ này đã được đặt trước. Vui lòng chọn khung giờ khác.");
+                }
             })
             .catch(err => {
-                toast.err("Ban da dat lich that bai");
-                console.log(err)
-            })
-    }
+                console.log(err);
+                toast.error("Có lỗi xảy ra khi kiểm tra khung giờ.");
+
+            });
+    };
+
+
+    // const handleSubmit = () => {
+    //     console.log("Booking")
+    //     const patientId = localStorage.getItem("patientId")
+    //     const bookingData = {
+    //         appointmentTime: formatDateToString(date),
+    //         patientId: patientId,
+    //         note: note,
+    //         doctorScheduleId: getFirstIdByTime(listBookingFull, selectedTimeSlot)
+    //     }
+
+    //     bookingService.checkSlotAvailability(bookingData.doctorScheduleId, doctorScheduleId.appointmentTime)
+    //         .then(res => {
+    //             bookingService.addBooking(bookingData)
+    //                 .then(res => {
+    //                     toast.success("Ban da dat lich thanh cong");
+    //                     navigate("/home")
+    //                 })
+    //                 .catch(err => {
+    //                     toast.err("Ban da dat lich that bai");
+    //                     console.log(err)
+    //                 })
+    //         })
+    //         .catch(err => {
+
+    //         })
+    // }
+
+    // const handleSubmit = async () => {
+    //     const patientId = localStorage.getItem("patientId");
+    //     const bookingData = {
+    //         appointmentTime: formatDateToString(date),
+    //         patientId,
+    //         note,
+    //         doctorScheduleId: getFirstIdByTime(listBookingFull, selectedTimeSlot)
+    //     };
+
+    //     try {
+    //         const isAvailable = await bookingService.checkSlotAvailability(bookingData.doctorScheduleId, bookingData.appointmentTime);
+
+    //         if (isAvailable) {
+    //             await bookingService.addBooking(bookingData);
+    //             toast.success("You have successfully booked an appointment");
+    //             navigate("/home");
+    //         } else {
+    //             toast.error("The selected time slot is no longer available. Please choose another slot.");
+    //         }
+    //     } catch (err) {
+    //         toast.error("Failed to book the appointment");
+    //         console.error(err);
+    //     }
+    // };
+
 
     return (
         <Dialog>
@@ -159,7 +235,7 @@ const BookAppointment = ({ doctor }) => {
                                     </div>
                                 </div>
                             </div>
-                            <Textarea className="mt-3" placeholder="Note" />
+                            <Textarea className="mt-3" placeholder="Note" name="note" onChange={handleChange} value={note} />
                         </div>
                     </DialogDescription>
                 </DialogHeader>

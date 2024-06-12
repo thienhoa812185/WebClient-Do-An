@@ -11,6 +11,11 @@ class DoctorService {
         return axios.get(BASE_URL + "/api/doctor/getById/" + id)
     }
 
+    getTop4Doctors(specialityId) {
+        console.log(specialityId)
+        return axios.get(BASE_URL + "/api/doctor/getTheFiveBestDoctor/" + specialityId)
+    }
+
 }
 
 
