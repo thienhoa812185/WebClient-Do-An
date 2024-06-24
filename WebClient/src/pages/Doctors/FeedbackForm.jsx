@@ -49,7 +49,7 @@ const FeedbackForm = ({ id }) => {
     return (
         <form action="">
             <div>
-                <h3 className="text-headingColor text-[16px] leading-6 font-semibold mb-4 mt-0">How would you rate the overall experience?*</h3>
+                <h3 className="text-headingColor text-[16px] leading-6 font-semibold mb-4 mt-0">Bạn đánh giá bác sĩ này bao nhiêu</h3>
                 <div>
                     {[...Array(5).keys()].map((_, index) => {
                         index += 1
@@ -70,11 +70,11 @@ const FeedbackForm = ({ id }) => {
                 </div>
             </div>
             <div className="mt-[30px]">
-                <h3 className="text-headingColor text-[16px] leading-6 font-semibold mb-4 mt-0">Share your feedback or suggestion*</h3>
-                <textarea className="border border-solid border-[#0066ff34] focus:outline outline-primaryColor w-full px-4 py-3 rounded-md" rows="5" placeholder="Write your message" value={reviewText} onChange={(e) => setReviewText(e.target.value)}></textarea>
+                <h3 className="text-headingColor text-[16px] leading-6 font-semibold mb-4 mt-0">Hãy để lại bình luận cho bác sĩ này</h3>
+                <textarea className="border border-solid border-[#0066ff34] focus:outline outline-primaryColor w-full px-4 py-3 rounded-md" rows="5" placeholder="Viết bình luận vào đây" value={reviewText} onChange={(e) => setReviewText(e.target.value)}></textarea>
             </div>
 
-            <button type="submit" onClick={handleSubmitReview} className="btn">Submit Feedback</button>
+            <button type="submit" onClick={handleSubmitReview} className="btn">Bình luận</button>
         </form>
     )
 }

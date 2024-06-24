@@ -19,12 +19,16 @@ class BookingService {
         return axios.post(BASE_URL + "/api/booking/updateStatusMethod/" + idBooking, statusMethod)
     }
 
+    updateStatusBooking(idBooking, status) {
+        return axios.post(BASE_URL + "/api/booking/updateStatusBooking/" + idBooking, status);
+    }
+
     checkSlotAvailability(doctorSchedule, appointment) {
         const data = { doctorScheduleId: doctorSchedule, appointmentTime: appointment };
         console.log(data)
         return axios.post(BASE_URL + "/api/booking/checkSlotAvailability", data);
     }
-    
+
 }
 
 

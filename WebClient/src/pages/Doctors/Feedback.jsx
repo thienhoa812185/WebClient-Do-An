@@ -27,12 +27,12 @@ const Feedback = ({ comments, id }) => {
     return (
         <div>
             <div className="mb-[50px]">
-                <h4 className="text-[20px] leading-[30px] font-bold text-headingColor mb-[30px]">All reviews ({commentList.length})</h4>
+                <h4 className="text-[20px] leading-[30px] font-bold text-headingColor mb-[30px]">Tất cả các bình luận ({commentList.length})</h4>
                 {
                     commentList.map(comment => (
                         <div className="flex justify-between gap-10 mb-[30px]">
                             <div className="flex gap-3">
-                                <figure className='w-10 h-10 rounded-full'><img className='w-full' src={avatar} alt="" /></figure>
+                                <figure className='w-10 h-10 rounded-full'><img className='w-full' src={comment.patient.image} alt="" /></figure>
 
                                 <div>
                                     <h5 className='text-[16px] leading-6 text-primaryColor font-bold'>{comment.patient.name}</h5>
@@ -48,7 +48,7 @@ const Feedback = ({ comments, id }) => {
                 }
             </div>
             {
-                !showFeedbackForm && <div className='text-center'><button className='btn' onClick={handleShowFeedbackForm}>Give Feedback</button></div>
+                !showFeedbackForm && <div className='text-center'><button className='btn' onClick={handleShowFeedbackForm}>Đưa ra bình luận</button></div>
             }
             {showFeedbackForm && <FeedbackForm id={id} />}
         </div>

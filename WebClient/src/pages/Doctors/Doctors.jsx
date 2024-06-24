@@ -115,9 +115,9 @@ const Doctor = () => {
                             <button class="bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700">Tìm kiếm</button>
                         </div>
                     </form>
-                    <div class="countResults text-center font-bold text-2xl py-4">
+                    {/* <div class="countResults text-center font-bold text-2xl py-4">
                         Found <span id="count">{doctorList.length}</span> results
-                    </div>
+                    </div> */}
 
                 </div>
 

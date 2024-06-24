@@ -22,7 +22,7 @@ const DoctorCard = ({ doctor }) => {
                 <div className='flex items-center gap-[6px]'>
                     {/* <span className='flex items-center gap-[6px] text-[14px] leading-6 lg:text-[16px] lg:leading-7 font-semibold text-headingColor'><img src={startIcon} alt="" />{4.8}</span> */}
                     {/* <span className='text-[14px] leading-6 lg:text-[16px] lg:leading-7 font-[400] text-textColor'>({4.8})</span> */}
-                    <span className='text-[14px] leading-6 lg:text-[16px] lg:leading-7 font-[400] text-textColor'><strong>Price:</strong> {formatCurrencyVND(examination_Price)}</span>
+                    <span className='text-[12px] leading-6 lg:text-[14px] lg:leading-7 font-[400] text-textColor'><strong>Giá khám:</strong> {formatCurrencyVND(examination_Price)}</span>
 
                 </div>
             </div>
@@ -37,7 +37,7 @@ const DoctorCard = ({ doctor }) => {
 
             </div>
             {/* <h3 className='text-[16px] leading-7 lg:text-[18px] lg:leading-[30px] font-semibold text-headingColor'>{examination_Address}</h3> */}
-            <p className='text-[14px] leading-6 font-[400] text-textColor'>Địa chỉ: {examination_Address}</p>
+            <p className='text-[14px] leading-6 font-[400] text-textColor'> <strong>Địa chỉ:</strong>{examination_Address}</p>
 
 
         </div >

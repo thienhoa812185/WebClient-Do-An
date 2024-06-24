@@ -116,13 +116,15 @@ const BookAppointment = ({ doctor }) => {
             appointmentTime: formatDateToString(date),
             patientId: patientId,
             note: note,
-            doctorScheduleId: doctorScheduleId
+            doctorScheduleId: doctorScheduleId,
+            price: doctor.examination_Price
         };
+        console.log(bookingData)
 
-        // Kiểm tra tính khả dụng của khung giờ trước khi đặt lịch
+
         bookingService.checkSlotAvailability(doctorScheduleId, bookingData.appointmentTime)
             .then(res => {
-                if (res.data) {  // Giả sử API trả về một đối tượng có thuộc tính isAvailable
+                if (res.data) {  
                     bookingService.addBooking(bookingData)
                         .then(res => {
                             toast.success("Bạn đã đặt lịch thành công");
@@ -200,18 +202,18 @@ const BookAppointment = ({ doctor }) => {
     return (
         <Dialog>
             <DialogTrigger>
-                <button className="btn px-2 w-full rounded-md">Book Appoitment</button>
+                <button className="btn px-2 w-[300px] rounded-md">Đặt lịch</button>
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
-                    <DialogTitle>Book Appointment</DialogTitle>
+                    <DialogTitle>Đặt lịch hẹn</DialogTitle>
                     <DialogDescription>
                         <div>
                             <div className="grid grid-cols-1 md:grid-cols-2 mt-5">
                                 <div className="flex flex-col gap-3 items-baseline">
                                     <h2 className="flex gap-2 items-center">
                                         <CalendarDays className="text-irisBlueColor h-5 w-5" />
-                                        Select Date
+                                        Lựa chọn ngày
                                     </h2>
                                     <Calendar
                                         mode="single"
@@ -224,7 +226,7 @@ const BookAppointment = ({ doctor }) => {
                                 <div className="mt-3 md:mt-0">
                                     <h2 className="flex gap-2 items-center mb-3">
                                         <Clock className="text-irisBlueColor h-5 w-5" />
-                                        Select Time Slot
+                                        Lựa chọn giờ khám
                                     </h2>
                                     <div className="grid grid-cols-3 gap-2 border rounded-lg p-5">
                                         {
@@ -235,7 +237,7 @@ const BookAppointment = ({ doctor }) => {
                                     </div>
                                 </div>
                             </div>
-                            <Textarea className="mt-3" placeholder="Note" name="note" onChange={handleChange} value={note} />
+                            <Textarea className="mt-3" placeholder="Nguyên nhân khám bệnh" name="note" onChange={handleChange} value={note} />
                         </div>
                     </DialogDescription>
                 </DialogHeader>
@@ -243,10 +245,10 @@ const BookAppointment = ({ doctor }) => {
                     <DialogClose asChild>
                         <>
                             <Button type="button" className="text-red-500 border-red-500" variant="outline">
-                                Close
+                                Hủy bỏ
                             </Button>
                             <Button type="button" disabled={!(date && selectedTimeSlot)} onClick={handleSubmit}>
-                                Submit
+                                Đặt lịch
                             </Button>
                         </>
                     </DialogClose>

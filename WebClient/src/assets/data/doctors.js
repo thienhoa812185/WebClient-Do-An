@@ -89,7 +89,7 @@ export const symptoms = [
     "vi": "tiểu rát"
   },
   {
-    "en": "spotting_urination",
+    "en": "spotting_ urination",
     "vi": "tiểu ra máu"
   },
   {
@@ -105,7 +105,7 @@ export const symptoms = [
     "vi": "lo lắng"
   },
   {
-    "en": "cold_hands_and_feet",
+    "en": "cold_hands_and_feets",
     "vi": "tay và chân lạnh"
   },
   {
@@ -197,7 +197,7 @@ export const symptoms = [
     "vi": "đau bụng"
   },
   {
-    "en": "diarrhea",
+    "en": "diarrhoea",
     "vi": "tiêu chảy"
   },
   {
@@ -329,7 +329,7 @@ export const symptoms = [
     "vi": "móng giòn"
   },
   {
-    "en": "swollen_extremities",
+    "en": "swollen_extremeties",
     "vi": "chi sưng"
   },
   {
@@ -397,7 +397,7 @@ export const symptoms = [
     "vi": "khó chịu bàng quang"
   },
   {
-    "en": "foul_smell_of_urine",
+    "en": "foul_smell_of urine",
     "vi": "nước tiểu có mùi hôi"
   },
   {
@@ -445,7 +445,7 @@ export const symptoms = [
     "vi": "kinh nguyệt bất thường"
   },
   {
-    "en": "dischromic_patches",
+    "en": "dischromic _patches",
     "vi": "mảng da đổi màu"
   },
   {
@@ -563,10 +563,6 @@ export const symptoms = [
   {
     "en": "yellow_crust_ooze",
     "vi": "mủ vàng chảy ra"
-  },
-  {
-    "en": "prognosis",
-    "vi": "tiên lượng"
   }
 ]
 
@@ -801,7 +797,7 @@ export const diseases = [
     "vi": "Vàng da"
   },
   {
-    "en": "Hepatitis A",
+    "en": "hepatitis A",
     "vi": "Viêm gan A"
   },
   {

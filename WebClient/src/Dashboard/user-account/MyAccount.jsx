@@ -48,22 +48,22 @@ const MyAccount = () => {
                             <h3 className="text-[18px] leading-[30px] text-headingColor font-bold">{patient.name}</h3>
                             <p className="text-textColor text-[15px] leading-6 font-medium">{patient.email}</p>
                             <p className="text-textColor text-[15px] leading-6 font-medium">
-                                Phone Number:
+                                Số điện thoại:
                                 <span className="ml-2 text-headingColor text-[20px] leading-8">
                                     {patient.phone}
                                 </span>
                             </p>
                         </div>
                         <div className="mt-[50px] md:mt-[100px]">
-                            <button onClick={handleLogout} className="w-full bg-[#181A1E] p-3 text-[16px] leading-7 rounded-md text-white">Logout</button>
-                            <button className="w-full bg-red-600 mt-4 p-3 text-[16px] leading-7 rounded-md text-white">Delete account</button>
+                            <button onClick={handleLogout} className="w-full bg-[#181A1E] p-3 text-[16px] leading-7 rounded-md text-white">Đăng xuất</button>
+                            {/* <button className="w-full bg-red-600 mt-4 p-3 text-[16px] leading-7 rounded-md text-white">Delete account</button> */}
                         </div>
 
                     </div>
                     <div className="md:col-span-2 md:px-[30px]">
                         <div>
-                            <button onClick={() => setTab('bookings')} className={`${tab === 'bookings' && 'bg-primaryColor text-white font-normal'} p-2 mr-5 px-5 rounded-md text-headingColor font-semibold text-[16px] leading-7 border border-solid border-primaryColor`}>My Bookings</button>
-                            <button onClick={() => setTab('settings')} className={`${tab === 'settings' && 'bg-primaryColor text-white font-normal'} py-2 px-5 rounded-md text-headingColor font-semibold text-[16px] leading-7 border border-solid border-primaryColor`}>Profile Settings</button>
+                            <button onClick={() => setTab('bookings')} className={`${tab === 'bookings' && 'bg-primaryColor text-white font-normal'} p-2 mr-5 px-5 rounded-md text-headingColor font-semibold text-[16px] leading-7 border border-solid border-primaryColor`}>Lịch đặt của bạn</button>
+                            <button onClick={() => setTab('settings')} className={`${tab === 'settings' && 'bg-primaryColor text-white font-normal'} py-2 px-5 rounded-md text-headingColor font-semibold text-[16px] leading-7 border border-solid border-primaryColor`}>Hồ sơ cá nhân</button>
 
                         </div>
                         {

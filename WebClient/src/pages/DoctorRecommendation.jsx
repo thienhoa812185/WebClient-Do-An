@@ -176,7 +176,7 @@ const DoctorRecommendation = () => {
                         </li>
                     </ul>
                     {
-                        specialty!=="Trống" && <button onClick={handleSuggest} className="btn w-full rounded-md">Suggest top 4 best doctors</button>
+                        specialty!=="Trống" && <button onClick={handleSuggest} className="btn w-full rounded-md">Gợi ý 4 bác sĩ tốt nhất</button>
                     }
                 </div>
             </div>
